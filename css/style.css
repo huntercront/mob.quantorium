@@ -447,17 +447,20 @@ margin-right: 0.25rem;
 }
 
 /* events */
-.event-thumbnail img{
-width: 100%;
-}
 .event{
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.03), 0px 10px 20px rgba(0, 0, 0, 0.03);
 	background-color: #fff;
 	border-radius: 3px;
 	overflow: hidden;
 	position: relative;
+	transition: transform 200ms ease-in;
+	background-size: cover;
+	background-position:center center;
+	margin-top: 1rem;
 }
-
+.event:first-child{
+	margin-top: 0rem;
+}
 .event:hover{
 	cursor: pointer;
 	transform: translate(0,-5px);
@@ -465,6 +468,7 @@ width: 100%;
 .event-data{
 	font-size: 0.95rem;
 	padding: 0.5rem 1rem;
+	padding-top: 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
