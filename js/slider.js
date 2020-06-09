@@ -60,13 +60,13 @@ document.addEventListener('DOMContentLoaded', function(){
 			loop: true,
 			rtl: false,
 			onInit:function(){
-				 currentSlide;
+				 currentSlide();
 				 this.addDots();
 				 this.updateDots();
 				},
 				onChange: function(){
 					this.updateDots();
-					currentSlide;
+					currentSlide();
 				}
 			});
 	
