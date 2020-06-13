@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				$('.slider-slides').removeClass('hide-init')
 			}
 	
-		$('.slider-prev').click(function() {
+		$('.hero-prev').click(function() {
 			heroSlider.prev()
 		})
-		$('.slider-next').click(function() {
+		$('.hero-next').click(function() {
 			heroSlider.next()
 		})
 		}
@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-		if($('div').is('.services-slider')){
+		if($('div').is('.testimonial-slider')){
 		var servSlider = new Siema({
-			selector: '.services-slider',
+			selector: '.testimonial-slider',
 			duration: 250,
 			easing: 'ease-out',
 			startIndex: 0,
@@ -99,23 +99,13 @@ document.addEventListener('DOMContentLoaded', function(){
 			perPage: {
 				506: 2,
 				649: 3,
-				1174: 4,
+				1174: 3,
 			},
 			});
-		$('.services-slider-prev').click(function() {
+		$('.testimonials-prev').click(function() {
 			servSlider.prev()
 		})
-		if($(window).width() < 506) {
-			servSlider.destroy(true);
-		}
-		$( window ).resize(function() {
-			if($(window).width() > 506){
-				servSlider.init();
-			}else{
-				servSlider.destroy(true);
-			}
-		})
-		$('.services-slider-next').click(function() {
+		$('.testimonials-next').click(function() {
 			servSlider.next()
 		})
 		}
