@@ -64,6 +64,60 @@ html{
 }
 
 
+/* header */
+.header ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+}
+.nav-wrapper{
+	justify-content: flex-start;
+}
+.header-inner{
+	display: flex;
+	justify-content: space-between;
+}
+.site-logo{
+	display: block;
+	width:200px;
+	flex: 0 0 180px;
+}
+.site-logo img{
+	width: 100%;
+}
+.has-child{
+	position: relative;
+
+}
+.has-child a{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.child-list{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	transform: translate(0,100%);
+}
+.nav-link{
+	font-size: 0.95rem;
+	color: #1e2022;
+}
+.nav-link a{
+	color: inherit;
+}
+.header-links{
+	display: flex;
+	justify-content: flex-start;
+}
+
+
+
 .container-custom{
 	max-width: 1920px;
 }
