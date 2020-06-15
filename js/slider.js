@@ -75,17 +75,16 @@ document.addEventListener('DOMContentLoaded', function(){
 				}
 			});
 			function currentSlide(arg) {
-				if($('.slider-slides').hasClass('anim-text')){
-					$('.slider-slides').removeClass('anim-text');
-				}
-				$('.slider-slides').eq(arg + 1).addClass('anim-text');
+				$('.slider-slides').removeClass('anim-text');
+				console.log('prev', arg)
+				$('.slider-slides').eq(arg+1).addClass('anim-text');
 				
 			}
 
 			function currentSlideinit() {
 				$('.slider-slides').removeClass('hide-init');
 				setTimeout(function(){
-					$('.slider-slides').addClass('anim-text');
+					$('.slider-slides').eq(1).addClass('anim-text');
 				  }, 10);
 				
 			}
