@@ -76,7 +76,9 @@ document.addEventListener('DOMContentLoaded', function(){
 			});
 			function currentSlide(arg) {
 				$('.slider-slides').removeClass('anim-text');
-				$('.slider-slides').eq(arg+1).addClass('anim-text');
+				setTimeout(function(){
+					$('.slider-slides').eq(arg+1).addClass('anim-text');
+				  }, 10);
 				if($('.slider-slides').eq(arg).hasClass('anim-text')){
 					$('.slider-slides').eq(arg).removeClass('anim-text');
 				}
