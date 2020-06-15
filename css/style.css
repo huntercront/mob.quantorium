@@ -362,6 +362,9 @@ opacity: 1;
 	.slider-text-block--link{
 		margin-top: 0;
 	}
+	.slider-text-block{
+		padding-bottom: 2.5rem;
+	}
 }
 
 /* quantums */
