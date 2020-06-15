@@ -681,31 +681,50 @@ margin-right: 0.25rem;
 	display: flex;
 	justify-content: flex-start;
 	overflow-x: auto;
+	padding-bottom: 1rem;
 }
 .event{
 	flex: 0 0 300px;
 	max-width: 300px;
 	margin-top: 0;
+	margin-right: 1rem;
 }
 .news-hero{
 	margin-bottom: 1rem;
 }
-.news .c-4::-webkit-scrollbar {
+.events::-webkit-scrollbar {
 	height: 6px;
   }
-  .news .c-4::-webkit-scrollbar-track {
+  .events::-webkit-scrollbar-track {
 	background: linear-gradient(to bottom, #fff 20%,
 	#C1D4FE 20%,#C1D4FE 80%,#fff 80%, #fff 100%);
 
   }
-  .news .c-4::-webkit-scrollbar-thumb {
+  .events::-webkit-scrollbar-thumb {
 	background: rgba(0, 51, 161,.5);
 	border-radius: 6px; 
   }
-  .news .c-4::-webkit-scrollbar-thumb:hover {
+  .events::-webkit-scrollbar-thumb:hover {
 	background: rgba(0, 51, 161,1);
   }
-  }
+	}
+	
+	@media(max-width:664px){
+		.news-line{
+			flex-direction: column;
+		}
+		.news-data,.news-thumbnail{
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+		.news-thumbnail{
+			order: 0;
+		}
+		.news-data{
+			order: 1;
+			margin-top: 1rem;
+		}
+	}
 
 /* road-map */
 .road{
