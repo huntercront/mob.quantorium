@@ -1,3 +1,4 @@
+if(window.matchMedia("(min-width: 700px)").matches){
 var curentScreenTop = $(".logos-anim-block").offset().top - $(window).scrollTop();
 $('.logos-line-1').css({'transform' : 'translate(' + 0 +', ' + curentScreenTop/20 + '%)'})
 $('.logos-line-2').css({'transform' : 'translate(' + 0 +', ' + curentScreenTop/40 + '%)'})
@@ -10,4 +11,5 @@ $(document).scroll(function() {
 		$('.logos-line-3').css({'transform' : 'translate(' + 0 +', ' + offsetFromScreenTop/15 + '%)'})
 	}
 });
+}
 // new SimpleBar($('.road-container')[0])

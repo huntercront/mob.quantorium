@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', function(){
 					const addOrRemove = this.currentSlide === i ? 'add' : 'remove';
 					this.dots.querySelectorAll('button')[i].classList[addOrRemove]('dots__item--active');
 				}
+				
+			}
+			curentShowSlide() {
+				return this.currentSlide;
+				
 			}
 		}
 
@@ -60,19 +65,31 @@ document.addEventListener('DOMContentLoaded', function(){
 			loop: true,
 			rtl: false,
 			onInit:function(){
-				 currentSlide();
+				 currentSlideinit();
 				 this.addDots();
 				 this.updateDots();
 				},
 				onChange: function(){
 					this.updateDots();
-					currentSlide();
+					currentSlide(this.curentShowSlide());
 				}
 			});
-	
-			function currentSlide() {
-				$('.slider-slides').removeClass('hide-init')
+			function currentSlide(arg) {
+				if($('.slider-slides').hasClass('anim-text')){
+					$('.slider-slides').removeClass('anim-text');
+				}
+				$('.slider-slides').eq(arg + 1).addClass('anim-text');
+				
 			}
+
+			function currentSlideinit() {
+				$('.slider-slides').removeClass('hide-init');
+				setTimeout(function(){
+					$('.slider-slides').addClass('anim-text');
+				  }, 10);
+				
+			}
+
 	
 		$('.hero-prev').click(function() {
 			heroSlider.prev()
@@ -86,7 +103,46 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 		if($('div').is('.testimonial-slider')){
-		var servSlider = new Siema({
+			class SiemaWithDots extends Siema {
+
+				addDots() {
+					// create a contnier for all dots
+					// add a class 'dots' for styling reason
+					this.dots = document.createElement('div');
+					this.dots.classList.add('dots');
+			
+					// loop through slides to create a number of dots
+					for(let i = 0; i < Math.ceil((this.innerElements.length + (this.perPage - 1))/this.perPage); i++) {
+						// create a dot
+						const dot = document.createElement('button');
+			
+						// add a class to dot
+						dot.classList.add('dots__item');
+			
+						// add an event handler to each of them
+						dot.addEventListener('click', () => {
+							this.goTo(i);
+						})
+			
+						// append dot to a container for all of them
+						this.dots.appendChild(dot);
+					}
+			
+					// add the container full of dots after selector
+					this.selector.parentNode.insertBefore(this.dots, this.selector.nextSibling);
+				}
+			
+				updateDots() {
+					// loop through all dots
+					for(let i = 0; i < this.dots.querySelectorAll('button').length; i++) {
+						// if current dot matches currentSlide prop, add a class to it, remove otherwise
+						const addOrRemove = this.currentSlide === i ? 'add' : 'remove';
+						this.dots.querySelectorAll('button')[i].classList[addOrRemove]('dots__item--active');
+					}
+				}
+			}
+	
+		var servSlider = new SiemaWithDots({
 			selector: '.testimonial-slider',
 			duration: 250,
 			easing: 'ease-out',
@@ -94,13 +150,21 @@ document.addEventListener('DOMContentLoaded', function(){
 			draggable: true,
 			multipleDrag: false,
 			threshold: 90,
-			loop: true,
+			loop: false,
 			rtl: false,
 			perPage: {
-				506: 2,
-				649: 3,
-				1174: 3,
+				664: 2,
+				924: 3,
 			},
+			onInit:function(){
+				currentSlide();
+				this.addDots();
+				this.updateDots();
+			   },
+			   onChange: function(){
+				   this.updateDots();
+				   currentSlide();
+			   }
 			});
 		$('.testimonials-prev').click(function() {
 			servSlider.prev()
