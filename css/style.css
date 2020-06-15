@@ -58,7 +58,7 @@ html{
 }
 @media(max-width:664px){
 	.c-link{
-		font-size: 0.85rem;
+		font-size: 1rem;
 		padding: 0.5rem 1rem;
 	}
 }

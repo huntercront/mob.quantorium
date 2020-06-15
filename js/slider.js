@@ -75,10 +75,11 @@ document.addEventListener('DOMContentLoaded', function(){
 				}
 			});
 			function currentSlide(arg) {
+				if($('.slider-slides').eq(arg).hasClass('anim-text')){
+				}else{
 				$('.slider-slides').removeClass('anim-text');
-				console.log('prev', arg)
 				$('.slider-slides').eq(arg+1).addClass('anim-text');
-				
+			}
 			}
 
 			function currentSlideinit() {
