@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', function(){
 				}
 			});
 			function currentSlide(arg) {
-				if($('.slider-slides').eq(arg).hasClass('anim-text')){
-				}else{
 				$('.slider-slides').removeClass('anim-text');
 				$('.slider-slides').eq(arg+1).addClass('anim-text');
-			}
+				if($('.slider-slides').eq(arg).hasClass('anim-text')){
+					$('.slider-slides').eq(arg).removeClass('anim-text');
+				}
 			}
 
 			function currentSlideinit() {
