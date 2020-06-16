@@ -86,6 +86,8 @@ html{
 	width: 100%;
 	max-width: 100%;
 	justify-content: space-between;
+	align-items: center;
+	position: relative;
 }
 .header-inner{
 	width: 100%;
@@ -185,6 +187,114 @@ ul.child-list .nav-link a:hover{
 }
 .has-child:hover .child-list-icon{
 	transform: rotate(-180deg);
+}
+
+/* menu-icon */
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.line {
+  fill:none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke:#0033a1;
+  stroke-width:5.5;
+  stroke-linecap:round;
+}
+.ham1 .top {
+  stroke-dasharray: 40 139;
+}
+.ham1 .bottom {
+  stroke-dasharray: 40 180;
+}
+.ham1.active .top {
+  stroke-dashoffset: -98px;
+}
+.ham1.active .bottom {
+  stroke-dashoffset: -138px;
+}
+.mobile-icon{
+	width: 42px;
+	flex: 0 0 42px;
+	height: 42px;
+	display: none;
+}
+@media(max-width:924px){
+	.mobile-icon{
+		display: block;
+	}
+.navigation{
+	position: fixed;
+	top: 50px;
+	left: 0;
+	width: auto;
+	height: auto;
+	background: #fff;
+	overflow-y: scroll;
+	height: calc(100% - 50px);
+}
+.header ul.nav-container{
+	border: none;
+	padding: 0;
+	flex-direction: column;
+	justify-content: flex-start;
+
+}
+.has-child{
+	display: flex;
+	flex-direction: column;
+}
+ul.child-list{
+	position: relative;
+	bottom: auto;
+	left: auto;
+	transform: translate(0);
+	visibility: visible;
+	opacity: 1;
+	padding: 0;
+	background: #fff;
+
+}
+
+ul.child-list .nav-link a:hover{
+	color: rgba(30, 32, 34,1);
+}
+ul.child-list::before{
+	display: none;
+}
+.nav-link a{
+	border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+.has-child a{
+	justify-content: space-between;
+	padding: .75rem .75rem;
+	padding-left: 15px;
+	font-size: 1rem;
+}
+ul.child-list .nav-link a{
+	color: rgba(30, 32, 34,0.75);
+	font-weight: 600;
+	font-size: 0.9rem;
+	padding: 0.65rem 1rem;
+	padding-left: 25px;
+	font-size: 0.9rem;
+	border: none;
+}
+.has-child:hover .child-list-icon{
+	transform: rotate(0deg);
+}
 }
 
 
