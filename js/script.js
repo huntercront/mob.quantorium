@@ -14,21 +14,29 @@ $(document).scroll(function() {
 }
 
 $('.mobile-icon').on('click', function(e){
-	$('.hamRotate').addClass('active');
+	$('.hamRotate').toggleClass('active');
 })
 $('.has-child a').on('click', function(e){
-
+	if(window.matchMedia("(max-width: 924px)").matches){
+		$(this).toggleClass('active--link');
+		var panel = $(this).parent().find('.child-list');
+		if (panel.css('max-height')=='0px') {
+      panel.css('max-height',panel.prop('scrollHeight') + "px")
+    } else {
+      panel.css('max-height','0px');
+    }
+	}
 })
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  });
-}
-// new SimpleBar($('.road-container')[0])
+// for (i = 0; i < acc.length; i++) {
+//   acc[i].addEventListener("click", function() {
+//     this.classList.toggle("active");
+//     var panel = this.nextElementSibling;
+//     if (panel.style.maxHeight) {
+//       panel.style.maxHeight = null;
+//     } else {
+//       panel.style.maxHeight = panel.scrollHeight + "px";
+//     }
+//   });
+// }
+// // new SimpleBar($('.road-container')[0])

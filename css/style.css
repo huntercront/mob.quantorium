@@ -265,7 +265,9 @@ ul.child-list{
 	opacity: 1;
 	padding: 0;
 	background: #fff;
-
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 ul.child-list .nav-link a:hover{
@@ -276,11 +278,12 @@ ul.child-list::before{
 }
 .nav-link a{
 	border-bottom: 1px solid rgba(0, 0, 0, .05);
+	padding: .75rem .75rem;
+	padding-left: 15px;
 }
 .has-child a{
 	justify-content: space-between;
-	padding: .75rem .75rem;
-	padding-left: 15px;
+
 	font-size: 1rem;
 }
 ul.child-list .nav-link a{
@@ -294,6 +297,9 @@ ul.child-list .nav-link a{
 }
 .has-child:hover .child-list-icon{
 	transform: rotate(0deg);
+}
+.has-child a.active--link .child-list-icon{
+	transform: rotate(-180deg);
 }
 }
 
