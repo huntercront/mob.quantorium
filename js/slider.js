@@ -159,13 +159,11 @@ document.addEventListener('DOMContentLoaded', function(){
 				924: 3,
 			},
 			onInit:function(){
-				currentSlide();
 				this.addDots();
 				this.updateDots();
 			   },
 			   onChange: function(){
 				   this.updateDots();
-				   currentSlide();
 			   }
 			});
 		$('.testimonials-prev').click(function() {
