@@ -1,3 +1,12 @@
+$(document).ready(function(){
+function getScrollBarWidth () {
+    var $outer = $('<div>').css({visibility: 'hidden', width: 100, overflow: 'scroll'}).appendTo('body'),
+        widthWithScroll = $('<div>').css({width: '100%'}).appendTo($outer).outerWidth();
+    $outer.remove();
+    return 100 - widthWithScroll;
+};
+var scrollWidth = getScrollBarWidth ();
+
 if(window.matchMedia("(min-width: 700px)").matches){
 var curentScreenTop = $(".logos-anim-block").offset().top - $(window).scrollTop();
 $('.logos-line-1').css({'transform' : 'translate(' + 0 +', ' + curentScreenTop/20 + '%)'})
@@ -15,6 +24,37 @@ $(document).scroll(function() {
 
 $('.mobile-icon').on('click', function(e){
 	$('.hamRotate').toggleClass('active');
+	$('.navigation').toggleClass('navigation--active');
+	$('.overlay').toggleClass('overlay--active');
+	if($('.header').css('padding-right')=='0px'){
+		$('.header').css('padding-right',scrollWidth+'px')
+		$('body').css('padding-right',scrollWidth+'px')
+		$('body').toggleClass('no-scroll')
+	}else {
+		$('.header').css('padding-right',0+'px')
+		$('body').css('padding-right',0+'px')
+		$('body').toggleClass('no-scroll')
+	  }
+
+})
+
+$('.overlay').on('click', function(e){
+	if(window.matchMedia("(max-width: 924px)").matches){
+		if($('.navigation').hasClass('navigation--active')){
+			$('.hamRotate').toggleClass('active');
+			$('.navigation').toggleClass('navigation--active')
+			$('.overlay').toggleClass('overlay--active')
+			if($('.header').css('padding-right')=='0px'){
+				$('.header').css('padding-right',scrollWidth+'px')
+				$('body').css('padding-right',scrollWidth+'px')
+				$('body').toggleClass('no-scroll')
+			}else {
+				$('.header').css('padding-right',0+'px')
+				$('body').css('padding-right',0+'px')
+				$('body').toggleClass('no-scroll')
+			  }
+		}
+	}
 })
 $('.has-child a').on('click', function(e){
 	if(window.matchMedia("(max-width: 924px)").matches){
@@ -28,15 +68,4 @@ $('.has-child a').on('click', function(e){
 	}
 })
 
-// for (i = 0; i < acc.length; i++) {
-//   acc[i].addEventListener("click", function() {
-//     this.classList.toggle("active");
-//     var panel = this.nextElementSibling;
-//     if (panel.style.maxHeight) {
-//       panel.style.maxHeight = null;
-//     } else {
-//       panel.style.maxHeight = panel.scrollHeight + "px";
-//     }
-//   });
-// }
-// // new SimpleBar($('.road-container')[0])
+})
